@@ -9,7 +9,7 @@
 ## TL;DR
 
 - The agent's built-in "auto memory" quietly wrote unverified facts into a file that was loaded into every prompt. I switched it off and replaced it with **four layers**: a short always-loaded persona file, a **git-versioned knowledge tree** with dated and sourced facts, an **inbox** for new facts, and a **vector + keyword search** over all old chats.
-- Nothing enters the knowledge tree without my **ok**: a nightly job proposes changes on a git branch, the agent sends me a summary at 08:00, I answer *ok* or *nein*.
+- Nothing enters the knowledge tree without my **ok**: a nightly job proposes changes on a git branch, the agent sends me a summary at 08:00, I answer *ok* or *not*.
 - A cross-encoder **reranker** moved the right chat to rank 1 for 19 of 24 test questions (was 11). On CPU it cost 3.6 s per search; as a small GPU service it costs 73 ms.
 - Most of the agent's **tool-call loops** (1,098 in 9 days) happened in sessions longer than 150 messages, right after context compression. Automatic session resets fixed most of it.
 - The biggest time sinks were not AI problems: **time zones, cgroups, cache paths and secrets in chat logs**.
